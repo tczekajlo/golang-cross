@@ -2,6 +2,8 @@
 ARG GO_VERSION
 FROM ghcr.io/tczekajlo/golang-cross:v${GO_VERSION}-base AS base
 
+LABEL org.opencontainers.image.source https://github.com/tczekajlo/golang-cross
+
 #ARG APT_MIRROR
 #RUN sed -ri "s/(httpredir|deb).debian.org/${APT_MIRROR:-deb.debian.org}/g" /etc/apt/sources.list \
 # && sed -ri "s/(security).debian.org/${APT_MIRROR:-security.debian.org}/g" /etc/apt/sources.list
