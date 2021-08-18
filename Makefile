@@ -1,7 +1,7 @@
 CROSS_IMAGE_NAME   := troian/golang-cross-builder
-IMAGE_NAME         := troian/golang-cross
+IMAGE_NAME         := tczekajlo/golang-cross
 GHCR_IMAGE_NAME    ?= ghcr.io/$(IMAGE_NAME)
-GO_VERSION         ?= 1.16.7
+GO_VERSION         ?= 1.17.0
 TAG_VERSION        := v$(GO_VERSION)
 GORELEASER_VERSION := 0.174.2
 GORELEASER_SHA     := 38155642fb10a75205f20e390474f3bad9fbf61f2614500b02b179d05907348e

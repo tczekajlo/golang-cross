@@ -20,17 +20,11 @@ RUN \
  && curl --fail -sSL -o /tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-amd64 \
  && chmod +x /tini \
  && echo "Starting image build for Debian Stretch" \
- && sed -ri "s/(httpredir|deb).debian.org/${APT_MIRROR:-deb.debian.org}/g" /etc/apt/sources.list \
- && sed -ri "s/(security).debian.org/${APT_MIRROR:-security.debian.org}/g" /etc/apt/sources.list \
- && apt-get update \
+ && apt-get update --allow-insecure-repositories \
  && apt-get install --no-install-recommends -y -q \
     software-properties-common \
- && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add - \
- && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
  && apt-get update                  \
  && apt-get install --no-install-recommends -y -q \
-        docker-ce \
-        docker-ce-cli \
         make \
         git-core \
         wget \
